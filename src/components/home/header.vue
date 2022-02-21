@@ -30,7 +30,6 @@ export default {
 
 .header-left {
   left: 0;
-  top: 0;
   right: 0;
   width: 20%;
   height: 60px;
@@ -39,6 +38,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   position: absolute;
   padding: 20px;
+  top: -10px;
 }
 .header-left{
   line-height: 10px;
@@ -80,11 +80,11 @@ li:hover{
   -webkit-font-smoothing: antialiased;
   position: absolute;
   font-size: 22px;
-  top: 0;
+  top:0;
   left: 80%;
   width: 20%;
   color: #f1eeee;
-  padding: 20px;
+  padding-top: 20px;
 }
 p{
   float: right;

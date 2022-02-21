@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <Header/>
+    <BrowsingVehicle/>
   </div>
 </template>
 
 <script>
 import Header from "@/components/home/header";
+import BrowsingVehicle from "@/components/home/browsingVeichle";
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    BrowsingVehicle
   }
 }
 </script>
@@ -35,7 +38,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 body{
-  background: linear-gradient(to right,rgba(10, 11, 10, 0.38),rgba(24, 45, 13, 0)),url('../public/1636.jpeg') no-repeat;
+  background: linear-gradient(to right, rgba(10, 11, 10, 0.38), rgba(24, 45, 13, 0)), url('../public/1636.jpeg') ,no-repeat;
   background-size: 100%;
   transition: background-image 0.5s linear;
 }
