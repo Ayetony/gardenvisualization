@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Header/>
+    <visualHeader/>
     <BrowsingVehicle/>
   </div>
 </template>
 
 <script>
-import Header from "@/components/home/header";
-import BrowsingVehicle from "@/components/home/browsingVeichle";
+import visualHeader from "@/components/home/visualHeader";
+import BrowsingVehicle from "@/components/home/browsingViechles";
 export default {
   name: 'App',
   components: {
-    Header,
+    visualHeader,
     BrowsingVehicle
   }
 }

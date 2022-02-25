@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "header"
+  name: "visualHeader"
 }
 </script>
 <style scoped>
