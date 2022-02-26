@@ -12,39 +12,52 @@
       <div>
         <p class="data-name">运行数量</p>
         <h1 class="data-font">{{ viechlePeopleNumber }}</h1>
-        <el-carousel arrow="never" trigger="click" indicator-position="outside" height="135px">
+        <el-carousel style="margin-top: -20px" arrow="never" trigger="click" indicator-position="outside" height="145px">
           <el-carousel-item v-for="item in items" :key="item">
             <div class="stats-vehicle">
               <div v-for="viechle in getItemViechles(item)" :key="viechle.id"><p>{{ viechle.name }}</p>
                 <img v-for="i in viechle.activeUserPercent" :key="i+'landed'" :src="landedUserIconURL" style="margin: -1px" height="25vh"
-                     width="25vh"/>
+                     width="22vh"/>
                 <img v-for="j in 10 - viechle.activeUserPercent" :key="j+'no-landed'" :src="noLandedUserIconURL" style="margin: -1px" height="25vh"
-                     width="25vh"/>
+                     width="22vh"/>
                 <p style="position: relative;float: right;font-size: 18px"><span
-                    style="color: #2cec2c;padding-left:50px;line-height: 25px;">0{{ viechle.activeUserPercent }}</span>/10
+                    style="color: #2cec2c;padding-left:30px;line-height: 25px;">0{{ viechle.activeUserPercent }}</span>/10
                 </p>
               </div>
             </div>
           </el-carousel-item>
         </el-carousel>
       </div>
-      <br/>
-      <div class="left-pane-head">
-        <p class="stick"></p>
-        <p class="left-title">游客统计</p>
+      <div>
+        <div class="left-pane-head">
+          <p class="stick"></p>
+          <p class="left-title">浏览车信息</p>
+        </div>
+        <br/>
+        <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#04f604'}">.</a>
+          <div class="gradiant-line"></div>
+        </div>
       </div>
-      <br/>
-      <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#04f604'}">.</a>
-        <div class="gradiant-line"></div>
+      <div style="padding-top: 5px;float: right;position: relative">
+        <el-row>
+          <el-button size="mini">本周</el-button>
+          <el-button size="mini">本月</el-button>
+          <el-button size="mini">本年</el-button>
+        </el-row>
+      </div>
+      <div class="gender-data">
+          <annular :gender="'male'" :ratio=".32"/>
       </div>
     </div>
   </div>
 </template>
-
 <script>
+import annular from "@/components/common/annular";
 export default {
   name: "browsingViechles",
-  components: {},
+  components: {
+    annular
+  },
   data() {
     return {
       landedUserIconURL: require('../../assets/svg/landedUser.svg'),
@@ -131,7 +144,7 @@ export default {
 <style scoped>
 .left-pane {
   position: absolute;
-  top: 100px;
+  top: 90px;
   left: 20px;
   color: #f1eeee;
   width: 20%;
@@ -189,7 +202,6 @@ export default {
 
 .data-font {
   position: relative;
-  margin-top: 25px;
   margin-left: 100px;
   font-size: 50px;
 }
@@ -203,5 +215,8 @@ export default {
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.el-button{
+  padding: 3px 10px;
 }
 </style>
