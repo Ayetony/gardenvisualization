@@ -64,7 +64,7 @@ span {
 }
 
 .ratio {
-  margin-top: -5px;
+  margin-top: -10px;
   display: inline-block;
   position: relative;
   float: left;
@@ -75,6 +75,7 @@ span {
 }
 .data-gender-desc{
   display: inline-block;
-  line-height: 10px;
+  line-height: 1px;
+  margin-left: -20px;
 }
 </style>

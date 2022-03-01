@@ -34,12 +34,12 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 body{
-  background: linear-gradient(to right, rgba(10, 11, 10, 0.38), rgba(24, 45, 13, 0)), url('../public/1636.jpeg') ,no-repeat;
+  background:linear-gradient(to right, rgba(21, 16, 16, 0.64), rgba(0, 0, 0, 0),rgba(23, 27, 28, 0.77)), url('../public/1636.jpeg') ,no-repeat;
   background-size: 100%;
   transition: background-image 0.5s linear;
 }
 </style>
+

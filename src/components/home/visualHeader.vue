@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div  class="header-left">
+    <div class="header-left">
       <h1>智慧园林管理中心</h1>
       <h3>厦门市园林植物园</h3>
     </div>
@@ -18,16 +18,40 @@
     <div class="header-right">
       <p>12:00:09<span>|</span>厦门<span>|</span><img style="width:30px;height: 30px" src="../../../public/sunshine.png">23°C<i>晴</i></p>
     </div>
-    <side-bar/>
+    <sideBar/>
+    <div class="middleNav">
+      <div class="middle">
+        <iconAnnular :name="'总览'" :imgOriginalURL="require('../../assets/svg/overview.svg')"/>
+      </div>
+      <div class="middle">
+        <iconAnnular :name="'园区'" :imgOriginalURL="require('../../assets/svg/park-location.svg')"/>
+      </div>
+      <div class="middle">
+        <iconAnnular :name="'路线'" :imgOriginalURL="require('../../assets/svg/path-to.svg')"/>
+      </div>
+      <div class="middle">
+        <iconAnnular :name="'天气'" :imgOriginalURL="require('../../assets/svg/weather.svg')"/>
+      </div>
+      <div class="middle">
+        <iconAnnular :name="'全局'" :imgOriginalURL="require('../../assets/svg/full-sights.svg')"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import iconAnnular from "@/components/common/iconAnnular";
 import sideBar from "@/components/home/sideBar";
 export default {
   name: "visualHeader",
   components:{
-    sideBar
+    sideBar,
+    iconAnnular
+  },
+  data(){
+    return {
+
+    }
   }
 }
 </script>
@@ -107,5 +131,22 @@ i{
   margin-left: 5px;
   color: white;
 }
-
+.middleNav{
+  position: absolute;
+  margin-left: 20%;
+  width: 60%;
+  top:75%;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+}
+.middle{
+  float: left;
+  margin: 20px;
+}
 </style>

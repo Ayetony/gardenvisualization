@@ -32,26 +32,25 @@
       <span>不合格</span><span style="background: #d90606;margin-left: 20px"></span>
       <span>合格</span><span style="background: #2cec2c"></span>
     </div>
+    <div class="wordcloud">
+      <word-cloud/>
+    </div>
   </div>
 </div>
 </template>
 
 <script>
-
+import wordCloud from "@/components/home/wordCloud";
 export default {
   name: "sideBar",
+  components:{
+    wordCloud
+  },
   data(){
     return {
-
-    }
-  },
-  methods:{
-    pieInit(){
-      let myChart = this.$echarts.init(this.$refs.main);
-      let option;
-      option = {
+      option:{
         title:{
-          text: '98000',
+          text: "",
           x: 'center',
           y: '40%',
           textStyle:{
@@ -68,18 +67,6 @@ export default {
           left: '70%',
           textStyle: {
             color: '#FFF',
-          },
-          formatter:function (params){
-            let arr = option.series[0].data;
-            let sum = 0;
-            arr.forEach((curr)=>{
-              sum += curr.value;
-            })
-            for (let i = 0; i < arr.length; i++) {
-              if(arr[i].name === params){
-                return '   ' + params +'  ' + arr[i].value +   '人  ' + ((arr[i].value/sum*100).toFixed(0))+'%' ;
-              }
-            }
           }
         },
         series: [
@@ -90,10 +77,8 @@ export default {
             radius: ['40%', '60%'],
             avoidLabelOverlap: false,
             itemStyle: {
-              normal:{
-                shadowBlur: 10,
-                shadowColor: 'rgba(252,247,247,0.97)',
-              }
+              shadowBlur: 20,
+              shadowColor: '#333'
             },
             label: {
               show: false,
@@ -101,7 +86,7 @@ export default {
             },
             emphasis: {
               label: {
-                show: true,
+                show: false,
                 fontSize: '20',
                 fontWeight: 'bolder',
               }
@@ -119,8 +104,34 @@ export default {
             ]
           }
         ]
-      };
-      myChart.setOption(option);
+      }
+    }
+  },
+  computed:{
+    sum(){
+      let arr = this.option.series[0].data;
+      let total = 0;
+      arr.forEach((curr)=>{
+        total += curr.value;
+      })
+      return total;
+    }
+
+  },
+  methods:{
+    pieInit(){
+      let myChart = this.$echarts.init(this.$refs.main);
+      let self = this;
+      this.option.legend.formatter=function (params){
+        let arr = self.option.series[0].data;
+        for (let i = 0; i < arr.length; i++) {
+          if(arr[i].name === params){
+            return '   ' + params +'  ' + arr[i].value +   '人  ' + ((arr[i].value/self.sum*100).toFixed(0))+'%' ;
+          }
+        }
+      }
+      this.option.title.text = this.sum;
+      myChart.setOption(this.option);
     }
   },
   mounted() {
@@ -211,5 +222,9 @@ export default {
   line-height: 1px;
   letter-spacing: 0;
   float: right;
+}
+.wordcloud{
+  padding: 50px;
+  left: 70%;
 }
 </style>
