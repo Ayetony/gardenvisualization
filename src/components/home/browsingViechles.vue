@@ -28,25 +28,28 @@
           </el-carousel-item>
         </el-carousel>
       </div>
-      <div>
-        <div class="left-pane-head">
+      <div style="position: relative;width: 100%;left: 20px;">
+        <div class="left-pane-head" style="left: -20px">
           <p class="stick"></p>
-          <p class="left-title">浏览车信息</p>
+          <p class="left-title">游客统计</p>
         </div>
         <br/>
         <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#04f604'}">.</a>
           <div class="gradiant-line"></div>
         </div>
       </div>
-      <div style="padding-top: 5px;float: right;position: relative">
+      <div style="padding: 10px;float: right;clear:both;position: relative;left: -8vh">
         <el-row>
           <el-button size="mini">本周</el-button>
           <el-button size="mini">本月</el-button>
           <el-button size="mini">本年</el-button>
         </el-row>
       </div>
-      <div class="gender-data">
-          <annular :gender="'male'" :ratio=".32"/>
+      <div class="annularMale">
+        <annular :gender="'male'"  :ratio=".32"/>
+      </div>
+      <div>
+        <annular :gender="'female'" :ratio=".52"/>
       </div>
     </div>
   </div>
@@ -144,7 +147,7 @@ export default {
 <style scoped>
 .left-pane {
   position: absolute;
-  top: 90px;
+  top: 100px;
   left: 20px;
   color: #f1eeee;
   width: 20%;
@@ -179,8 +182,6 @@ export default {
 }
 
 .gradiant-line {
-  position: relative;
-  clear: both;
   height: 0.12rem;
   width: 220px;
   margin-top: 10px;
@@ -217,6 +218,16 @@ export default {
   -moz-osx-font-smoothing: grayscale;
 }
 .el-button{
-  padding: 3px 10px;
+  padding: 1px 8px;
+  border-radius: unset;
+}
+.el-button:focus{
+  background: #2cec2c;
+}
+.annularMale{
+  display: inline-block;
+  left: 0;
+  clear: right;
+  float: left;
 }
 </style>

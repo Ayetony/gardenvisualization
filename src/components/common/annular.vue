@@ -10,8 +10,8 @@
       <span><img :src="this.gender === 'male'?maleImgURL:femaleImgURL" height="20px" width="20px"/></span>
     </div>
     <div class="data-gender-desc">
-      <h3>198,100</h3>
-      <p class="people-name">男性游客</p>
+      <h5>198,100</h5>
+      <p class="people-name">{{ this.gender==='female'?'女性游客':'男性游客' }}</p>
     </div>
   </div>
 </template>
@@ -59,15 +59,15 @@ span {
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   font-family: monospace;
-  font-size: 20px;
+  font-size: 16px;
   color: #4ffd0c;
 }
 
 .ratio {
+  margin-top: -5px;
   display: inline-block;
   position: relative;
   float: left;
-  margin-top: 20px;
 }
 .people-name{
   color: #abb1b4;

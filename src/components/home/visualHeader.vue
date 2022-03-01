@@ -18,12 +18,17 @@
     <div class="header-right">
       <p>12:00:09<span>|</span>厦门<span>|</span><img style="width:30px;height: 30px" src="../../../public/sunshine.png">23°C<i>晴</i></p>
     </div>
+    <side-bar/>
   </div>
 </template>
 
 <script>
+import sideBar from "@/components/home/sideBar";
 export default {
-  name: "visualHeader"
+  name: "visualHeader",
+  components:{
+    sideBar
+  }
 }
 </script>
 <style scoped>
