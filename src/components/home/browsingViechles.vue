@@ -12,23 +12,23 @@
       <div>
         <p class="data-name">运行数量</p>
         <h1 class="data-font">{{ viechlePeopleNumber }}</h1>
-        <el-carousel style="margin-top: -20px" arrow="never" trigger="click" indicator-position="outside" height="145px">
+        <el-carousel style="margin-top: -10px" arrow="never" trigger="click" indicator-position="outside" height="200px">
           <el-carousel-item v-for="item in items" :key="item">
             <div class="stats-vehicle">
-              <div v-for="viechle in getItemViechles(item)" :key="viechle.id"><p>{{ viechle.name }}</p>
-                <img v-for="i in viechle.activeUserPercent" :key="i+'landed'" :src="landedUserIconURL" style="margin: -1px" height="25vh"
-                     width="22vh"/>
-                <img v-for="j in 10 - viechle.activeUserPercent" :key="j+'no-landed'" :src="noLandedUserIconURL" style="margin: -1px" height="25vh"
-                     width="22vh"/>
+              <div v-for="viechle in getItemViechles(item)" :key="viechle.id"><p style="padding: 5px">{{ viechle.name }}</p>
+                <img v-for="i in viechle.activeUserPercent" :key="i+'landed'" :src="landedUserIconURL" style="margin: -1px" height="30vh"
+                     width="30vh"/>
+                <img v-for="j in 10 - viechle.activeUserPercent" :key="j+'no-landed'" :src="noLandedUserIconURL" style="margin: -1px" height="30vh"
+                     width="30vh"/>
                 <p style="position: relative;float: right;font-size: 18px"><span
-                    style="color: #2cec2c;padding-left:30px;line-height: 25px;">0{{ viechle.activeUserPercent }}</span>/10
+                    style="color: #2cec2c;padding-left:30px;line-height: 30px;">0{{ viechle.activeUserPercent }}</span>/10
                 </p>
               </div>
             </div>
           </el-carousel-item>
         </el-carousel>
       </div>
-      <div style="position: relative;width: 100%;left: 20px;">
+      <div style="position: relative;margin-top:10px;width: 100%;left: 20px;">
         <div class="left-pane-head" style="left: -20px">
           <p class="stick"></p>
           <p class="left-title">游客统计</p>
@@ -112,6 +112,11 @@ export default {
         {
           id: 'eight',
           name: '八号浏览车',
+          activeUserPercent: 7
+        },
+        {
+          id: 'nine',
+          name: '九号浏览车',
           activeUserPercent: 7
         }
       ],

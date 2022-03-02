@@ -17,7 +17,7 @@
       </el-row>
     </div>
   </div>
-  <div ref="main" style="height: 200px;width: 30%;position: absolute;left: 70%;top:180px;color: #FFF">
+  <div ref="main" style="height: 350px;width: 30%;position: absolute;left: 70%;top:120px;color: #FFF">
   </div>
   <div class="envDetail">
     <div class="left-pane-head">
@@ -51,11 +51,16 @@ export default {
       option:{
         title:{
           text: "",
+          subtext: '总数',
           x: 'center',
           y: '40%',
           textStyle:{
             color: '#FFF',
-            fontSize: 22
+            fontSize: 25
+          },
+          subtextStyle:{
+            fontSize: 18,
+            color: '#FFF',
           }
         },
         tooltip: {
@@ -63,8 +68,10 @@ export default {
         },
         legend: {
           orient: 'vertical',
-          top: '15%',
+          top: '20%',
           left: '70%',
+          height:300,
+          itemGap: 25,
           textStyle: {
             color: '#FFF',
           }
@@ -77,8 +84,10 @@ export default {
             radius: ['40%', '60%'],
             avoidLabelOverlap: false,
             itemStyle: {
-              shadowBlur: 20,
-              shadowColor: '#333'
+              width: 3,
+              shadowBlur: 10,
+              shadowColor: 'rgba(0,0,0,0.4)',
+              shadowOffsetY: 10,
             },
             label: {
               show: false,
@@ -92,7 +101,7 @@ export default {
               }
             },
             labelLine: {
-              show: true
+              show: false
             },
             data: [
               { value: 1048, name: '华东'},
@@ -205,7 +214,7 @@ export default {
 }
 .envDetail{
   position: absolute;
-  top:400px;
+  top:450px;
   width: 220px;
   right: 0;
   color: #FFF;
@@ -225,7 +234,6 @@ export default {
 }
 .wordcloud{
   position: absolute;
-  margin-top: 20px;
   left: 60%;
   right: 0;
   margin-left:-370px;

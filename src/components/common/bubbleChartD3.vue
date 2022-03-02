@@ -14,67 +14,74 @@ export default {
   components: {},
   data() {
     return {
-      covidData: [
+      regionData: [
         {
           "name": "东门",
           id: "1",
           "value": "100050.0",
           "fill": "#31c531",
-          "colour": "#ffffff"
+          "colour": "#fff"
         },
         {
           "name": "西北",
           "id": "2",
-          "value": "12650.0",
+          "value": "52650.0",
           "fill": "#D8352A",
-          "colour": "#ffffff"
+          "colour": "#fff"
 
         },
         {
           "name": "秋霞",
-          "id": "2",
-          "value": "12650.0",
+          "id": "3",
+          "value": "32650.0",
           "fill": "#D8352A",
-          "colour": "#ffffff"
+          "colour": "#fff"
 
         },
         {
           "name": "大通",
-          "id": "3",
+          "id": "4",
           "value": "100242.0",
           "fill": "#48509E",
-          "colour": "#ffffff"
+          "colour": "#fff"
 
         },
         {
           "name": "风物",
-          "id": "3",
+          "id": "5",
           "value": "59242.0",
-          "fill": "#D8352A",
-          "colour": "#ffffff"
+          "fill": "#48509E",
+          "colour": "#fff"
 
         },
         {
           "name": "西门",
-          "id": "4",
+          "id": "6",
           "value": "82465.0",
           "fill": "#48509E",
-          "colour": "#ffffff"
+          "colour": "#fff"
 
         },
         {
           "name": "中路",
-          "id": "5",
+          "id": "7",
           "value": "79696.0",
           "fill": "#48509E",
-          "colour": "#ffffff"
+          "colour": "#fff"
         },
         {
           "name": "东南",
-          "id": "6",
+          "id": "8",
           "value": "59105.0",
           "fill": "#48509E",
-          "colour": "#ffffff"
+          "colour": "#fff"
+        },
+        {
+          "name": "华北",
+          "id": "9",
+          "value": "19696.0",
+          "fill": "#48509E",
+          "colour": "#fff"
         },
       ]
     }
@@ -111,7 +118,7 @@ export default {
                                colour,
                                // eslint-disable-next-line no-unused-vars
                                r,
-                               duration = 1000,
+                               duration = 2000,
                              }) => {
         return {
           append: "text",
@@ -139,7 +146,7 @@ export default {
         }
         return newValue;
       };
-      //将各地区名称长度和数值与圆圈大小相比较，实现信息动态变化
+      //长度和数值与圆圈大小相比较，实现信息动态变化
       const labelComponent = ({ isoCode, countryName, value, r, colour }) => {
         //Don't show any text for radius under 10px
         if (r < 10) {
@@ -148,7 +155,7 @@ export default {
         const circleWidth = r;
         const nameWidth = countryName.length * 10;
         const shouldShowIso = nameWidth > circleWidth;
-        const newCountryName = shouldShowIso ? isoCode : countryName;
+        // const newCountryName = shouldShowIso ? countryName : countryName;
         const shouldShowValue = r > 18;
         let nameFontSize;
         if (shouldShowValue) {
@@ -159,7 +166,7 @@ export default {
         return [
           textComponent({
             key: isoCode,
-            text: newCountryName,
+            text: countryName,
             fontSize: nameFontSize,
             y: shouldShowValue ? "-0.2em" : "0.3em",
             fillOpacity: 1,
@@ -211,14 +218,15 @@ export default {
               colour,
               duration,
             }),
-          ],
+          ]
         };
       };
       const pack = (data) =>
           d3
               .pack()
               .size([width - 2, height - 2])
-              .padding(2)(d3.hierarchy({ children: data }).sum((d) => d.value));
+              .padding(20)(d3.hierarchy({ children: data }).sum((d) => d.value));
+
       //生成气泡图表
       const renderBubbleChart = (selection, data) => {
         const root = pack(data);
@@ -239,16 +247,20 @@ export default {
       const renderBubbleChartContainer = (data) => {
         return renderBubbleChart("#bubble-chart", data);
       };
-      renderBubbleChartContainer(this.covidData);
+      renderBubbleChartContainer(this.regionData);
     },
   },
   mounted() {
     this.getdata();
+    // 循环
+    // setInterval(()=>{
+    //     const seed = this.regionData.length;
+    //     this.regionData[Math.floor(Math.random()*seed)].value -= Math.ceil(Math.random()*3000);
+    //     this.getdata();
+    // },3000)
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
