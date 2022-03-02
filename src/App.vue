@@ -37,7 +37,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 body{
-  background:linear-gradient(to right, rgba(21, 16, 16, 0.64), rgba(0, 0, 0, 0),rgba(23, 27, 28, 0.77)), url('../public/1636.jpeg') ,no-repeat;
+  background:linear-gradient(to left, rgba(21, 16, 16, 0.64),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0),rgba(21, 16, 16, 0.64)),linear-gradient(to right,rgba(21, 16, 16, 0.64),rgba(0,0,0,0),rgba(21, 16, 16, 0.64)), url('../public/1636.jpeg') ,no-repeat;
   background-size: 100%;
   transition: background-image 0.5s linear;
 }

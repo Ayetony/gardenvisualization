@@ -1,64 +1,65 @@
 <template>
-<div>
-  <div class="sidebar">
-    <div class="left-pane-head">
-      <p class="stick"></p>
-      <p class="left-title">游客客源地</p>
+  <div>
+    <div class="sidebar">
+      <div class="left-pane-head">
+        <p class="stick"></p>
+        <p class="left-title">游客客源地</p>
+      </div>
+      <br/>
+      <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#04f604'}">.</a>
+        <div class="gradiant-line"></div>
+      </div>
+      <div style="padding: 10px;float: right;clear:left;position: relative;left: -2vh">
+        <el-row>
+          <el-button size="mini">本周</el-button>
+          <el-button size="mini">本月</el-button>
+          <el-button size="mini">本年</el-button>
+        </el-row>
+      </div>
     </div>
-    <br/>
-    <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#04f604'}">.</a>
-      <div class="gradiant-line"></div>
+    <div ref="main" style="height: 350px;width: 32%;position: absolute;left: 68%;top:120px;color: #FFF">
     </div>
-    <div style="padding: 10px;float: right;clear:left;position: relative;left: -2vh">
-      <el-row>
-        <el-button size="mini">本周</el-button>
-        <el-button size="mini">本月</el-button>
-        <el-button size="mini">本年</el-button>
-      </el-row>
+    <div class="envDetail">
+      <div class="left-pane-head">
+        <p class="stick"></p>
+        <p class="left-title">环境信息</p>
+      </div>
+      <br/>
+      <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#31c531'}">.</a>
+        <div class="gradiant-line"></div>
+      </div>
+      <div class="envDetailDesc">
+        <span>不合格</span><span style="background: #D8352A;margin-left: 20px"></span>
+        <span>合格</span><span style="background: #31c531"></span>
+      </div>
+      <div class="wordcloud">
+        <bubbleChartD3/>
+      </div>
     </div>
   </div>
-  <div ref="main" style="height: 350px;width: 30%;position: absolute;left: 70%;top:120px;color: #FFF">
-  </div>
-  <div class="envDetail">
-    <div class="left-pane-head">
-      <p class="stick"></p>
-      <p class="left-title">环境信息</p>
-    </div>
-    <br/>
-    <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#31c531'}">.</a>
-      <div class="gradiant-line"></div>
-    </div>
-    <div class="envDetailDesc">
-      <span>不合格</span><span style="background: #D8352A;margin-left: 20px"></span>
-      <span>合格</span><span style="background: #31c531"></span>
-    </div>
-    <div class="wordcloud">
-      <bubbleChartD3/>
-    </div>
-  </div>
-</div>
 </template>
 
 <script>
 import bubbleChartD3 from "@/components/common/bubbleChartD3";
+
 export default {
   name: "sideBar",
-  components:{
+  components: {
     bubbleChartD3
   },
-  data(){
+  data() {
     return {
-      option:{
-        title:{
+      option: {
+        title: {
           text: "",
           subtext: '总数',
           x: 'center',
           y: '40%',
-          textStyle:{
+          textStyle: {
             color: '#FFF',
             fontSize: 25
           },
-          subtextStyle:{
+          subtextStyle: {
             fontSize: 18,
             color: '#FFF',
           }
@@ -68,9 +69,9 @@ export default {
         },
         legend: {
           orient: 'vertical',
-          top: '20%',
-          left: '70%',
-          height:300,
+          top: '19%',
+          left: '73%',
+          height: 300,
           itemGap: 25,
           textStyle: {
             color: '#FFF',
@@ -80,18 +81,18 @@ export default {
           {
             name: '游客来源',
             type: 'pie',
-            // color:['','','','','',''],
             radius: ['40%', '60%'],
+            color:['#44a6df','#3581ad','#46d3e1','#01c172','#48d0a1','#5571a7'],
             avoidLabelOverlap: false,
-            itemStyle: {
-              width: 3,
-              shadowBlur: 10,
-              shadowColor: 'rgba(0,0,0,0.4)',
-              shadowOffsetY: 10,
-            },
             label: {
               show: false,
               position: 'center'
+            },
+            itemStyle:{
+              width: 10,
+              shadowColor: 'rgba(0,0,0,0.1)',
+              shadowBlur: 10,
+              shadowOffsetY: 10
             },
             emphasis: {
               label: {
@@ -104,38 +105,110 @@ export default {
               show: false
             },
             data: [
-              { value: 1048, name: '华东'},
-              { value: 735, name: '华南' },
-              { value: 580, name: '西北' },
-              { value: 484, name: '西南' },
-              { value: 300, name: '东北' },
-              { value: 390, name: '其他' }
+              {value: 648, name: '华东'},
+              {value: 735, name: '华南'},
+              {value: 580, name: '西北'},
+              {value: 484, name: '西南'},
+              {value: 300, name: '东北'},
+              {value: 390, name: '其他'}
+            ]
+          },
+          {
+            type: 'pie',
+            zlevel: -1,
+            radius: ['40%', '35%'],
+            color:['#44a6df','#3581ad','#46d3e1','#01c172','#48d0a1','#5571a7'],
+            itemStyle:{
+              width: 10,
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 10,
+              shadowOffsetY: 10
+            },
+            label: {
+              show: false,
+            },
+            emphasis: {
+              label: {
+                show: false,
+              }
+            },
+            data: [
+              {value: 648, name: '华东'},
+              {value: 735, name: '华南'},
+              {value: 580, name: '西北'},
+              {value: 484, name: '西南'},
+              {value: 300, name: '东北'},
+              {value: 390, name: '其他'}
+            ]
+          },
+          {
+            type: 'pie',
+            radius: ['45%', '65%'],
+            zlevel: -2,
+            itemStyle:{
+              width: 10,
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 10,
+              shadowOffsetY: 10
+            },
+            label: {
+              show: false,
+            },
+            emphasis: {
+              label: {
+                show: false,
+              }
+            },
+            data: [
+              {value: 1048, name: '华东',itemStyle:{ color:'rgba(171,162,162,0.44)'}},
+            ]
+          },
+          {
+            type: 'pie',
+            radius: ['30%', '55%'],
+            zlevel: -2,
+            itemStyle:{
+              width: 10,
+              shadowColor: 'rgba(0,0,0,0.5)',
+              shadowBlur: 10,
+              shadowOffsetY: 10
+            },
+            label: {
+              show: false,
+            },
+            emphasis: {
+              label: {
+                show: false,
+              }
+            },
+            data: [
+              {value: 1048, name: '华东',itemStyle:{ color:'rgba(171,162,162,0.44)'}},
             ]
           }
         ]
       }
     }
   },
-  computed:{
-    sum(){
+  computed: {
+    sum() {
       let arr = this.option.series[0].data;
       let total = 0;
-      arr.forEach((curr)=>{
+      arr.forEach((curr) => {
         total += curr.value;
       })
       return total;
     }
 
   },
-  methods:{
-    pieInit(){
+  methods: {
+    pieInit() {
       let myChart = this.$echarts.init(this.$refs.main);
       let self = this;
-      this.option.legend.formatter=function (params){
+      this.option.legend.formatter = function (params) {
         let arr = self.option.series[0].data;
         for (let i = 0; i < arr.length; i++) {
-          if(arr[i].name === params){
-            return '   ' + params +'  ' + arr[i].value +   '人  ' + ((arr[i].value/self.sum*100).toFixed(0))+'%' ;
+          if (arr[i].name === params) {
+            return '   ' + params + '  ' + arr[i].value + '人  ' + ((arr[i].value / self.sum * 100).toFixed(0)) + '%';
           }
         }
       }
@@ -144,7 +217,7 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(()=>{
+    this.$nextTick(() => {
       this.pieInit();
     })
   }
@@ -195,47 +268,54 @@ export default {
   background: linear-gradient(to right, #3cee3c, #d2decd 50%);
 }
 
-.sidebar{
+.sidebar {
   position: absolute;
   right: 0;
   top: 100px;
   color: #f1eeee;
   width: 220px;
 }
-.el-button{
+
+.el-button {
   padding: 1px 8px;
   border-radius: unset;
 }
-.el-button:focus{
+
+.el-button:focus {
   background: #2cec2c;
 }
-.el-button:hover{
+
+.el-button:hover {
   background: #2cec2c;
 }
-.envDetail{
+
+.envDetail {
   position: absolute;
-  top:450px;
+  top: 450px;
   width: 220px;
   right: 0;
   color: #FFF;
 }
-.envDetailDesc{
+
+.envDetailDesc {
   clear: left;
   font-size: 12px;
   font-weight: bolder;
 }
-.envDetailDesc>span{
+
+.envDetailDesc > span {
   display: inline-block;
   padding: 5px 10px;
-  margin-top:10px;
+  margin-top: 10px;
   line-height: 1px;
   letter-spacing: 0;
   float: right;
 }
-.wordcloud{
+
+.wordcloud {
   position: absolute;
   left: 60%;
   right: 0;
-  margin-left:-370px;
+  margin-left: -370px;
 }
 </style>

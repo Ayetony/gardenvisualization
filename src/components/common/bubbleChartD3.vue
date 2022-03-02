@@ -253,11 +253,11 @@ export default {
   mounted() {
     this.getdata();
     // 循环
-    // setInterval(()=>{
-    //     const seed = this.regionData.length;
-    //     this.regionData[Math.floor(Math.random()*seed)].value -= Math.ceil(Math.random()*3000);
-    //     this.getdata();
-    // },3000)
+    setInterval(()=>{
+        const seed = this.regionData.length;
+        this.regionData[Math.floor(Math.random()*seed)].value -= Math.ceil(Math.random()*30000);
+        this.getdata();
+    },3000)
   },
 };
 </script>
