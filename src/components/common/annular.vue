@@ -76,6 +76,6 @@ span {
 .data-gender-desc{
   display: inline-block;
   line-height: 1px;
-  margin-left: -20px;
+  margin-left: -10px;
 }
 </style>

@@ -25,26 +25,26 @@
       <p class="left-title">环境信息</p>
     </div>
     <br/>
-    <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#04f604'}">.</a>
+    <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#31c531'}">.</a>
       <div class="gradiant-line"></div>
     </div>
     <div class="envDetailDesc">
-      <span>不合格</span><span style="background: #d90606;margin-left: 20px"></span>
-      <span>合格</span><span style="background: #2cec2c"></span>
+      <span>不合格</span><span style="background: #D8352A;margin-left: 20px"></span>
+      <span>合格</span><span style="background: #31c531"></span>
     </div>
     <div class="wordcloud">
-      <word-cloud/>
+      <bubbleChartD3/>
     </div>
   </div>
 </div>
 </template>
 
 <script>
-import wordCloud from "@/components/home/wordCloud";
+import bubbleChartD3 from "@/components/common/bubbleChartD3";
 export default {
   name: "sideBar",
   components:{
-    wordCloud
+    bubbleChartD3
   },
   data(){
     return {
@@ -224,7 +224,10 @@ export default {
   float: right;
 }
 .wordcloud{
-  padding: 50px;
-  left: 70%;
+  position: absolute;
+  margin-top: 20px;
+  left: 60%;
+  right: 0;
+  margin-left:-370px;
 }
 </style>

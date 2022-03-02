@@ -53,11 +53,11 @@
       </div>
       <div class="stat-people">
         <img class="stat" src="../../../public/stat-people.png" />
-        <span class="stat-portion">30%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">50岁以上</span></div>
-        <span class="stat-portion-one">30%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">35~50岁</span></div>
-        <span class="stat-portion-one">30%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">20~35岁</span></div>
-        <span class="stat-portion-one">30%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">10~20岁</span></div>
-        <span class="stat-portion-one">30%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">10岁以下</span></div>
+        <span class="stat-portion">10%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">50岁以上</span></div>
+        <span class="stat-portion-one">10%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">35~50岁</span></div>
+        <span class="stat-portion-one">20%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">20~35岁</span></div>
+        <span class="stat-portion-one">50%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">10~20岁</span></div>
+        <span class="stat-portion-one">10%</span><div class="people"><span style="float: right;margin-top: -5px;padding: 10px">10岁以下</span></div>
       </div>
     </div>
   </div>
@@ -245,7 +245,7 @@ export default {
   clear: left;
   width: 345px;
   margin: 7px;
-  background: #bb8094;
+  background: rgb(101, 26, 26);
   position: relative;
   border-radius: 5%;
   z-index: 999;
@@ -261,11 +261,11 @@ export default {
   height: 200px;
   z-index: 1000;
   left: 0;
-  margin-top: 25px;
+  margin-top: 26px;
 }
 .stat-portion{
   position: absolute;
-  margin-left: -130px;
+  margin-left: -140px;
   margin-top: 40px;
   z-index:10001;
   font-size: 20px;
