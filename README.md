@@ -1,5 +1,14 @@
 # gardenvisualization
 
+visualization demo for practicing
+
+## 参考技术  
+### echarts vue2.x
+###主要动效实现
+```
+数字滚动 ，环形阴影，d3 气泡
+```
+
 ## Project setup
 ```
 npm install
@@ -19,6 +28,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
