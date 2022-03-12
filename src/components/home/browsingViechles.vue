@@ -11,7 +11,8 @@
       </div>
       <div>
         <p class="data-name">运行数量</p>
-        <h1 class="data-font">{{ viechlePeopleNumber }}</h1>
+        <h1 class="data-font"><vns :start="0" :end="viechlePeopleNumber" :speed="80" :times="100" :format="num => num"/></h1>
+
         <el-carousel style="margin-top: -10px" arrow="never" trigger="click" indicator-position="outside" height="200px">
           <el-carousel-item v-for="item in items" :key="item">
             <div class="stats-vehicle">
@@ -64,10 +65,11 @@
 </template>
 <script>
 import annular from "@/components/common/annular";
+import vns from 'vue-number-scroll'
 export default {
   name: "browsingViechles",
   components: {
-    annular
+    annular,vns
   },
   data() {
     return {
@@ -129,8 +131,8 @@ export default {
     items() {
       return Math.ceil(this.viechles.length / this.itemSize)
     },
-    viechlePeopleNumber(){
-      return this.countStr;
+    viechlePeopleNumber:function (){
+      return this.count;
     }
   },
   methods: {
@@ -151,7 +153,7 @@ export default {
   },
   mounted() {
     this.countStr = this.count.toLocaleString()
-    this.animatingNum();
+    // this.animatingNum();
   }
 
 }

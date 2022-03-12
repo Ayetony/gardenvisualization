@@ -9,7 +9,7 @@
       <div class="alt-option-dot"><a>.</a><a>.</a><a :style="{color: '#04f604'}">.</a>
         <div class="gradiant-line"></div>
       </div>
-      <div style="padding: 10px;float: right;clear:left;position: relative;left: -2vh">
+      <div style="padding: 10px;float: right;clear:both;position: relative;left: -1vh;z-index: 1000000000">
         <el-row>
           <el-button size="mini">本周</el-button>
           <el-button size="mini">本月</el-button>
@@ -17,7 +17,7 @@
         </el-row>
       </div>
     </div>
-    <div ref="main" style="height: 350px;width: 32%;position: absolute;left: 68%;top:120px;color: #FFF">
+    <div ref="main" style="height: 350px;width: 32%;position: relative;left: 68%;top:120px;color: #FFF">
     </div>
     <div class="envDetail">
       <div class="left-pane-head">
@@ -284,11 +284,6 @@ export default {
 .el-button:focus {
   background: #2cec2c;
 }
-
-.el-button:hover {
-  background: #2cec2c;
-}
-
 .envDetail {
   position: absolute;
   top: 450px;
@@ -310,6 +305,10 @@ export default {
   line-height: 1px;
   letter-spacing: 0;
   float: right;
+}
+
+.el-button:focus{
+  background: #2cec2c;
 }
 
 .wordcloud {
