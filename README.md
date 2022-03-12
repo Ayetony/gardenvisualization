@@ -4,7 +4,7 @@ visualization demo for practicing
 
 ## 参考技术  
 ### echarts vue2.x
-###主要动效实现
+### 主要动效实现
 ```
 数字滚动 ，环形阴影，d3 气泡
 ```
